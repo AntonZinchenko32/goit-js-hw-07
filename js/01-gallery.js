@@ -8,11 +8,23 @@ myGallery.addEventListener("click", selectImage);
 function selectImage(event) {
     event.preventDefault();
 
-  if (event.target.nodeName !== "IMG") {
-    return;
-  }
-    const selectedImage = event.target.dataset.source;
-    console.log(selectedImage);
+    if (event.target.nodeName !== "IMG") {
+        return;
+    }
+
+    const selectedImageUrl = event.target.dataset.source;
+    const modal = basicLightbox.create(`<img src=${selectedImageUrl}>`);
+    modal.show();
+
+    const buttonPressHandler = () => {
+        if (event.key === "Escape") {
+            modal.close(document.addEventListener("keydown", buttonPressHandler));
+        }
+    }
+  
+    document.addEventListener("keydown", buttonPressHandler);
+
+    
 }
 
 // Створення і рендер розмітки
