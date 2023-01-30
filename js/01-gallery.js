@@ -66,4 +66,3 @@ function selectImage(event) {
     document.addEventListener("keydown", buttonPressHandler);
 }
 
-
