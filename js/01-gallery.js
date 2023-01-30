@@ -2,6 +2,18 @@ import { galleryItems } from './gallery-items.js';
 // Change code below this line
 const myGallery = document.querySelector(".gallery");
 
+myGallery.addEventListener("click", selectImage);
+
+// This is where delegation «magic» happens
+function selectImage(event) {
+  if (event.target.nodeName !== "IMG") {
+    return;
+  }
+    
+    const selectedImage = event.target.dataset.source;
+    console.log(selectedImage);
+}
+
 createGallery();
 
 function createGallery() {
@@ -31,27 +43,6 @@ function createGallery() {
 
     myGallery.append(...items);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
