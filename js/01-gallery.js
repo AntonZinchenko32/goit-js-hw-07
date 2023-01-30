@@ -24,9 +24,8 @@ function selectImage(event) {
     }
   
     document.addEventListener("keydown", buttonPressHandler);
-
-    
 }
+
 
 // Створення і рендер розмітки
 createGallery();
