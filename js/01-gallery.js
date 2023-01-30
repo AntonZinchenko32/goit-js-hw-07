@@ -12,13 +12,14 @@ function selectImage(event) {
         return;
     }
 
-    const selectedImageUrl = event.target.dataset.source;
-    const modal = basicLightbox.create(`<img src=${selectedImageUrl}>`);
+    const selectedImage = event.target;
+    selectedImage.setAttribute("src", event.target.dataset.source);
+    const modal = basicLightbox.create(selectedImage.outerHTML);
     modal.show();
 
-    const buttonPressHandler = () => {
+    const buttonPressHandler = (event) => {
         if (event.key === "Escape") {
-            modal.close(document.addEventListener("keydown", buttonPressHandler));
+            modal.close(document.removeEventListener("keydown", buttonPressHandler));
         }
     }
   
