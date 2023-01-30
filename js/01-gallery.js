@@ -6,14 +6,16 @@ myGallery.addEventListener("click", selectImage);
 
 // This is where delegation «magic» happens
 function selectImage(event) {
+    event.preventDefault();
+
   if (event.target.nodeName !== "IMG") {
     return;
   }
-    
     const selectedImage = event.target.dataset.source;
     console.log(selectedImage);
 }
 
+// Створення і рендер розмітки
 createGallery();
 
 function createGallery() {
