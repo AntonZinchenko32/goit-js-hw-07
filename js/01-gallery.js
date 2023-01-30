@@ -1,37 +1,16 @@
 import { galleryItems } from './gallery-items.js';
-// Change code below this line
+
 const myGallery = document.querySelector(".gallery");
 
+createGallery();
 myGallery.addEventListener("click", selectImage);
 
-// This is where delegation «magic» happens
-function selectImage(event) {
-    event.preventDefault();
 
-    if (event.target.nodeName !== "IMG") {
-        return;
-    }
-
-    const selectedImage = event.target;
-    selectedImage.setAttribute("src", event.target.dataset.source);
-    const modal = basicLightbox.create(selectedImage.outerHTML);
-    modal.show();
-
-    const buttonPressHandler = (event) => {
-        if (event.key === "Escape") {
-            modal.close(document.removeEventListener("keydown", buttonPressHandler));
-        }
-    }
-  
-    document.addEventListener("keydown", buttonPressHandler);
-}
-
-
-// Створення і рендер розмітки
-createGallery();
+// Створення,рендер розмітки, додавання єлементів до гаоереї
 
 function createGallery() {
     const items = [];
+
     galleryItems.forEach(item => {
         const { preview, original, description } = item;
 
@@ -59,6 +38,32 @@ function createGallery() {
 }
 
 
+function selectImage(event) {
+    event.preventDefault();
+
+    if (event.target.nodeName !== "IMG") {
+        return;
+    }
+
+    // Зберігаю посилання на обране зображення в змінну
+    const selectedImage = event.target;
+    
+    // Замінюю лінк малого зображення на велике, в src
+    selectedImage.setAttribute("src", event.target.dataset.source);
+    
+    // Створюю та відкриваю модалку
+    const modal = basicLightbox.create(selectedImage.outerHTML);
+    modal.show();
+
+    // Функця, що спрацьовує при натисканні будь якої клавіши на клавіатурі
+    const buttonPressHandler = (event) => {
+        if (event.key === "Escape") {
+            modal.close(document.removeEventListener("keydown", buttonPressHandler));
+        }
+    }
+
+    // Додаю прослуховання натискання клавіш, на клавіатурі
+    document.addEventListener("keydown", buttonPressHandler);
+}
 
 
-console.log(galleryItems);
