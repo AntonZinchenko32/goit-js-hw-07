@@ -6,8 +6,8 @@ createGallery();
 myGallery.addEventListener("click", selectImage);
 
 
-// Створення,рендер розмітки, додавання єлементів до гаоереї
 
+// Функція створення розмітки
 function createGallery() {
     const items = [];
 
@@ -37,7 +37,7 @@ function createGallery() {
     myGallery.append(...items);
 }
 
-
+// Функціонал галереї
 function selectImage(event) {
     event.preventDefault();
 
@@ -62,7 +62,7 @@ function selectImage(event) {
         }
     }
 
-    // Додаю прослуховання натискання клавіш, на клавіатурі
+    // Додаю прослуховування натискання клавіш, на клавіатурі
     document.addEventListener("keydown", buttonPressHandler);
 }
 

@@ -1,12 +1,14 @@
 import { galleryItems } from './gallery-items.js';
-// Change code below this line
 
 const myGallery = document.querySelector(".gallery");
 
 createGallery();
 
-// Створення,рендер розмітки, додавання єлементів до гаоереї
+new SimpleLightbox('.gallery a',{
+    captionDelay: "250"
+});
 
+// Функція створення розмітки
 function createGallery() {
     const items = [];
 
@@ -22,6 +24,7 @@ function createGallery() {
 
         image.src = preview;
         image.alt = description;
+        image.setAttribute("title", description);
 
         link.append(image);
 
@@ -31,5 +34,3 @@ function createGallery() {
     myGallery.append(...items);
 }
 
-
-console.log(galleryItems);
