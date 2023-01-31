@@ -2,13 +2,13 @@ import { galleryItems } from './gallery-items.js';
 
 const myGallery = document.querySelector(".gallery");
 
-createGallery();
+createMarkup();
 myGallery.addEventListener("click", selectImage);
 
 
 
 // Функція створення розмітки
-function createGallery() {
+function createMarkup() {
     const items = [];
 
     galleryItems.forEach(item => {
@@ -39,8 +39,11 @@ function createGallery() {
 
 // Функціонал галереї
 function selectImage(event) {
+    
+    // Забороняємо дії що виконує браузер, за замовчуванням
     event.preventDefault();
 
+    // Перевіряємо чи цільовий елемент, саме, зображення 
     if (event.target.nodeName !== "IMG") {
         return;
     }

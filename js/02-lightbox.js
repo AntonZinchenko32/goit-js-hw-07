@@ -2,14 +2,14 @@ import { galleryItems } from './gallery-items.js';
 
 const myGallery = document.querySelector(".gallery");
 
-createGallery();
+createMarkup();
 
 new SimpleLightbox('.gallery a',{
     captionDelay: "250"
 });
 
 // Функція створення розмітки
-function createGallery() {
+function createMarkup() {
     const items = [];
 
     galleryItems.forEach(item => {
