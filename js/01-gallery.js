@@ -6,8 +6,6 @@ createMarkup();
 myGallery.addEventListener("click", selectImage);
 
 
-
-// Функція створення розмітки
 function createMarkup() {
     const items = [];
 

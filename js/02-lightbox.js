@@ -8,7 +8,6 @@ new SimpleLightbox('.gallery a',{
     captionDelay: "250"
 });
 
-// Функція створення розмітки
 function createMarkup() {
     const items = [];
 
